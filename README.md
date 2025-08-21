@@ -4,11 +4,13 @@ A Discord bot that allows administrators to easily add tags to forum channels us
 
 ## Features
 
-- 🏷️ Add multiple tags to forum channels with a single command
+- 🏷️ Add multiple tags to individual forum channels with a single command
+- 🌐 Add tags to ALL forum channels in the server at once
 - 🛡️ Restricted to users with "Manage Channels" permission
 - ✅ Prevents duplicate tags (case-insensitive)
 - 📝 Respects Discord's 20-tag limit per forum
-- 🎯 Works with current channel or specify a different forum channel
+- 🎯 Works with current channel, from forum posts, or specify a different forum channel
+- 📊 Detailed reports for bulk operations
 
 ## Setup
 
@@ -48,6 +50,26 @@ npm start
 
 ## Usage
 
+### Adding Tags to a Single Forum Channel
+
+Use the `/add-tags` command with a comma-separated list of tags:
+
+```
+/add-tags tags: bug, feature, help-wanted
+```
+
+This will add three tags: "bug", "feature", and "help-wanted" to the current forum channel.
+
+### Adding Tags to ALL Forum Channels
+
+Use the `/add-tags-to-all` command to add tags to every forum channel in the server:
+
+```
+/add-tags-to-all tags: general, announcement, important
+```
+
+This will attempt to add the specified tags to all forum channels in the server and provide a detailed report of the results.
+
 ### Adding Tags to a Forum Channel
 
 Use the `/add-tags` command with a comma-separated list of tags:
@@ -68,11 +90,19 @@ You can also specify which forum channel to add tags to:
 
 ## Command Details
 
-- **Command**: `/add-tags`
+### `/add-tags` - Add Tags to Single Forum
+
 - **Required Permission**: Manage Channels
 - **Parameters**:
   - `tags` (required): Comma-separated list of tag names
   - `channel` (optional): The forum channel to add tags to (defaults to current channel)
+
+### `/add-tags-to-all` - Add Tags to All Forums
+
+- **Required Permission**: Manage Channels
+- **Parameters**:
+  - `tags` (required): Comma-separated list of tag names
+- **Note**: This command processes all forum channels in the server and provides a detailed report
 
 ## Limitations
 
