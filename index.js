@@ -88,12 +88,23 @@ client.on("interactionCreate", async (interaction) => {
       // If no channel specified, use current channel
       if (!targetChannel) {
         targetChannel = interaction.channel;
+
+        // If current channel is not a forum, check if it's a thread in a forum
+        if (
+          targetChannel.type === ChannelType.PublicThread &&
+          targetChannel.parent
+        ) {
+          if (targetChannel.parent.type === ChannelType.GuildForum) {
+            targetChannel = targetChannel.parent;
+          }
+        }
       }
 
       // Check if the target channel is a forum channel
       if (targetChannel.type !== ChannelType.GuildForum) {
         await interaction.reply({
-          content: "❌ This command can only be used on forum channels.",
+          content:
+            "❌ This command can only be used on forum channels or forum posts. Please specify a forum channel or use the command from within a forum.",
           ephemeral: true,
         });
         return;
