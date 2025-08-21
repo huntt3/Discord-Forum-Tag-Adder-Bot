@@ -2,13 +2,20 @@
   "name": "discord-forum-tag-adder-bot",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "discord",
+    "bot",
+    "forum",
+    "tags"
+  ],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "A Discord bot to manage forum tags easily",
   "dependencies": {
     "discord.js": "^14.22.0",
     "dotenv": "^17.2.1"
