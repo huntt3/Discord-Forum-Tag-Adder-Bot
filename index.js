@@ -21,15 +21,6 @@ const CHANNEL_OPTION_NAME = "channel";
 const CHANNEL_OPTION_DESCRIPTION =
   "The forum channel to add tags to (optional, uses current channel if not specified)";
 
-const client = new Client({
-  intents: [
-    GatewayIntentBits.Guilds,
-    GatewayIntentBits.GuildMessages,
-    GatewayIntentBits.GuildMembers,
-    GatewayIntentBits.DirectMessages,
-  ],
-});
-
 // Create the slash command
 const addTagsCommand = new SlashCommandBuilder()
   .setName(COMMAND_NAME)
